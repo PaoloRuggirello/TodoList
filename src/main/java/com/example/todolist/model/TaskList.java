@@ -14,7 +14,7 @@ public class TaskList {
     private long id;
 
     @Basic
-    @Column(name = "NOME")
+    @Column(name = "NOME", unique = true)
     private String nome;
 
     @OneToMany
