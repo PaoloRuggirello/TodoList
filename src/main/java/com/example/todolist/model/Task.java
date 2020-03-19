@@ -28,6 +28,9 @@ public class Task implements Serializable {
     @Column(name = "DONE")
     private boolean done;
 
+    @ManyToOne
+    private TaskList list;
+
     public Task() {
     }
 

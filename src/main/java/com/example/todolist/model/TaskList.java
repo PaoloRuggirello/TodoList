@@ -17,8 +17,7 @@ public class TaskList {
     @Column(name = "NOME", unique = true)
     private String nome;
 
-    @OneToMany
-    @JoinColumn(name = "TASKS")
+    @OneToMany(mappedBy = "list", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Task> tasks;
 
 
