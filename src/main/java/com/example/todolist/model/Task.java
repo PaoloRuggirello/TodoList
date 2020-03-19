@@ -11,6 +11,7 @@ import java.sql.Date;
 @Entity
 public class Task implements Serializable {
 
+    //Fasano non sa committareaaa
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
