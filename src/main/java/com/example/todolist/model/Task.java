@@ -12,7 +12,6 @@ import java.sql.Date;
 public class Task implements Serializable {
 
     @Id
-<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private long id;
