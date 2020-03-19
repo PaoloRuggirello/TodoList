@@ -70,7 +70,4 @@ public class Task implements Serializable {
     public void setDone(boolean done) {
         this.done = done;
     }
-=======
-    @GeneratedValue(strategy = GenerationType.IDENTITY)////PAOLOOOOOOOOOOO
->>>>>>> d84b8a7ad7a3360dfc72c60b8d5108c5902acdd8
 }
