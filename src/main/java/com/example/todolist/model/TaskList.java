@@ -10,11 +10,11 @@ public class TaskList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private long id;
 
     @Basic
-    @Column(name = "NOME", unique = true)
+    @Column(name = "nome", unique = true)
     private String nome;
 
     @OneToMany(mappedBy = "list", cascade = CascadeType.ALL, orphanRemoval = true)

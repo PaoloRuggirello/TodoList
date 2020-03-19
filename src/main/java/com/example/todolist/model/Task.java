@@ -1,31 +1,28 @@
 package com.example.todolist.model;
 
-import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-@Table(name = "TASK")
+@Table(name = "task")
 @Entity
 public class Task implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private long id;
 
-    @Column(name = "NOME", unique = true)
+    @Column(name = "nome", unique = true)
     private String nome;
 
-    @Column(name = "DESCRIZIONE")
+    @Column(name = "nome")
     private String descrizione;
 
-    @Column(name = "DATA")
+    @Column(name = "data")
     private Date data;
 
-    @Column(name = "DONE")
+    @Column(name = "done")
     private boolean done;
 
     @ManyToOne
