@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@Table(name = "task")
+
 @Entity
 public class Task implements Serializable {
 

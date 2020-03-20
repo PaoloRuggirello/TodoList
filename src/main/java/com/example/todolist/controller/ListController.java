@@ -18,8 +18,8 @@ public class ListController {
     @Autowired
     TaskRepository taskrepo;
 
-    @GetMapping("/get/{id}")
-    public Optional<TaskList> findById(@PathVariable( name = "id") long id){
+    @GetMapping("/get")
+    public Optional<TaskList> findById(@RequestParam( name = "id") long id){
         return listrep.findById(id);
     }
 
