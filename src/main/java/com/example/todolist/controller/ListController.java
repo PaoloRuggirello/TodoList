@@ -7,7 +7,6 @@ import com.example.todolist.persistence.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,7 +23,7 @@ public class ListController {
         return listrep.findById(id);
     }
 
-    @PostMapping("/create/")
+    @PostMapping("/create")
     public TaskList createList(@RequestParam(value = "nome") String nome){
         TaskList tskL = new TaskList(nome);
         return listrep.save(tskL);

@@ -54,7 +54,17 @@ public class TaskList {
         this.tasks = tasks;
     }
 
-    public boolean addTask(Task task){
+    public boolean addTask(Task task) {
         return this.tasks.add(task);
+    }
+
+    // covenzione Soldo, aggiungere sempre tostring
+    @Override
+    public String toString() {
+        return "TaskList{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", tasks=" + tasks +
+                '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.example.todolist.model;
 
+import com.google.common.base.MoreObjects;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -13,10 +15,10 @@ public class Task implements Serializable {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "nome", unique = true)
+    @Column(name = "nome", unique = true, length = 100)
     private String nome;
 
-    @Column(name = "nome")
+    @Column(name = "descrizione")
     private String descrizione;
 
     @Column(name = "data")
@@ -69,5 +71,19 @@ public class Task implements Serializable {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+
+    // convenzione Soldo del toString, using GuavaMoreObjects
+    @Override
+    public String toString() {
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("nome", nome)
+                .add("descrizione", descrizione)
+                .add("data", data)
+                .add("done", done)
+                .add("list", list)
+                .toString();
     }
 }
