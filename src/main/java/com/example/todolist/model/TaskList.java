@@ -1,5 +1,7 @@
 package com.example.todolist.model;
 
+import com.google.common.base.MoreObjects;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +12,10 @@ public class TaskList {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private long id;
 
     @Basic
-    @Column(name = "nome", unique = true)
+    @Column(unique = true, length = 50)
     private String nome;
 
     @OneToMany(mappedBy = "list", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -54,17 +55,16 @@ public class TaskList {
         this.tasks = tasks;
     }
 
-    public boolean addTask(Task task) {
+    public boolean addTask(Task task){
         return this.tasks.add(task);
     }
 
-    // covenzione Soldo, aggiungere sempre tostring
     @Override
     public String toString() {
-        return "TaskList{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", tasks=" + tasks +
-                '}';
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("nome", nome)
+                .add("tasks", tasks)
+                .toString();
     }
 }
