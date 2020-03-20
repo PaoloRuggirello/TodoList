@@ -1,8 +1,6 @@
 package com.example.todolist.model;
 
 
-import com.google.common.base.MoreObjects;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
@@ -72,13 +70,13 @@ public class Task implements Serializable {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("id", id)
-                .add("nome", nome)
-                .add("descrizione", descrizione)
-                .add("data", data)
-                .add("done", done)
-                .add("list", list)
+        return new org.apache.commons.lang3.builder.ToStringBuilder(this)
+                .append("id", id)
+                .append("nome", nome)
+                .append("descrizione", descrizione)
+                .append("data", data)
+                .append("done", done)
+                .append("list", list)
                 .toString();
     }
 }
