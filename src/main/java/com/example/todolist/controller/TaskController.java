@@ -22,8 +22,7 @@ public class TaskController {
 
     @GetMapping("/getAll")
     public List<Task> findAllTasks() {
-        List<Task> tasks = tskrep.findAll();
-        return tasks;
+        return tskrep.findAll();
     }
 
     @PostMapping("/create")
