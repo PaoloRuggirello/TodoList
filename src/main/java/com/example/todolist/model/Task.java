@@ -30,11 +30,12 @@ public class Task implements Serializable {
     public Task() {
     }
 
-    public Task(String nome,TaskList list ,Date data){
+    public Task(String nome, TaskList list, Date data, String descrizione) {
         this();
         this.nome = nome;
         this.data = data;
         this.list = list;
+        this.descrizione = descrizione;
     }
 
 

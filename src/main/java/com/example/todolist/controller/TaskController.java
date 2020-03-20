@@ -27,12 +27,14 @@ public class TaskController {
     }
 
     @PostMapping("/create")
-    public Task create(@RequestParam(value = "nome") String nome, @RequestParam(value = "idList") long idList){
-        SimpleDateFormat format =  new SimpleDateFormat("dd/MM/yyyy");
+    public Task create(@RequestParam(value = "nome") String nome,
+                       @RequestParam(value = "idList") long idList,
+                       @RequestParam(value = "descrizione", defaultValue = "") String descrizione) {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         TaskList list = lstrep.findById(idList).orElse(null);
-        if(list != null) {
-            Task t = new Task(nome, list, date);
+        if (list != null) {
+            Task t = new Task(nome, list, date, descrizione);
             return tskrep.save(t);
         }
         return null;
