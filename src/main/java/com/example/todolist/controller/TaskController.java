@@ -30,7 +30,6 @@ public class TaskController {
     public Task create(@RequestParam(value = "nome") String nome,
                        @RequestParam(value = "idList") long idList,
                        @RequestParam(value = "descrizione", defaultValue = "") String descrizione) {
-        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         TaskList list = lstrep.findById(idList).orElse(null);
         if (list != null) {
