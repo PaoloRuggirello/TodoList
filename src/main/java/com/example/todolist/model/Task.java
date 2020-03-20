@@ -5,7 +5,7 @@ import com.google.common.base.MoreObjects;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 @Table(name = "task")
 @Entity
@@ -25,10 +25,19 @@ public class Task implements Serializable {
     private boolean done;
 
     @ManyToOne
-    private TaskList list;
+    public TaskList list;
 
     public Task() {
     }
+
+    public Task(String nome,TaskList list ,Date data){
+        this();
+        this.nome = nome;
+        this.data = data;
+        this.list = list;
+    }
+
+
 
     public long getId() {
         return id;
@@ -70,6 +79,14 @@ public class Task implements Serializable {
         this.done = done;
     }
 
+    public String getList() {
+        return list.toString();
+    }
+
+    public void setList(TaskList list) {
+        this.list = list;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
@@ -78,7 +95,6 @@ public class Task implements Serializable {
                 .add("descrizione", descrizione)
                 .add("data", data)
                 .add("done", done)
-                .add("list", list)
                 .toString();
     }
 }

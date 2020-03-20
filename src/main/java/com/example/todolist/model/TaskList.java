@@ -47,8 +47,11 @@ public class TaskList {
         this.nome = nome;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
+    public List<String> getTasks() {
+        List<String> result = new ArrayList<>();
+        for(Task t : tasks)
+            result.add(t.toString());
+        return result;
     }
 
     public void setTasks(List<Task> tasks) {
@@ -64,7 +67,6 @@ public class TaskList {
         return MoreObjects.toStringHelper(this)
                 .add("id", id)
                 .add("nome", nome)
-                .add("tasks", tasks)
                 .toString();
     }
 }
