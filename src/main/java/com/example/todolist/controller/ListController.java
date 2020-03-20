@@ -1,13 +1,13 @@
 package com.example.todolist.controller;
 
-import com.example.todolist.model.Task;
 import com.example.todolist.model.TaskList;
 import com.example.todolist.persistence.ListRepository;
 import com.example.todolist.persistence.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/list")
@@ -33,9 +33,5 @@ public class ListController {
         TaskList tskL = new TaskList(nome);
         return listrep.save(tskL);
     }
-
-
-
-
 
 }
