@@ -19,19 +19,31 @@ public class ListController {
     TaskRepository taskrepo;
 
     @GetMapping("/get")
-    public Optional<TaskList> findById(@RequestParam( name = "id") long id){
+    public Optional<TaskList> findById(@RequestParam(name = "id") long id) {
         return listrep.findById(id);
     }
 
     @GetMapping("/getAll")
-    public List<TaskList> findAll(){
+    public List<TaskList> findAll() {
         return listrep.findAll();
     }
 
     @PostMapping("/create")
-    public TaskList createList(@RequestParam(value = "nome") String nome){
+    public TaskList createList(@RequestParam(value = "nome") String nome) {
         TaskList tskL = new TaskList(nome);
         return listrep.save(tskL);
+    }
+
+    @DeleteMapping("/delete")
+    public String delete(@RequestParam(name = "id") long id) {
+
+        try {
+            TaskList toDelete = listrep.findById(id).orElse(null);
+            listrep.delete(toDelete);
+        } catch (Exception ex) {
+            return "Error deleting the list:" + ex.toString();
+        }
+        return "Lista succesfully deleted!";
     }
 
 }

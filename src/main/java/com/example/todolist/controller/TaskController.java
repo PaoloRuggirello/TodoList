@@ -21,7 +21,7 @@ public class TaskController {
     ListRepository lstrep;
 
     @GetMapping("/getAll")
-    public List<Task> findAllTasks(){
+    public List<Task> findAllTasks() {
         List<Task> tasks = tskrep.findAll();
         return tasks;
     }
@@ -41,11 +41,11 @@ public class TaskController {
     }
 
     @PostMapping("/changeList")
-    public TaskList bindList(@RequestParam(value = "idTask") long idTask, @RequestParam(value = "idList") long idList){
+    public TaskList bindList(@RequestParam(value = "idTask") long idTask, @RequestParam(value = "idList") long idList) {
         Task task = tskrep.findById(idTask).orElse(null);
-        if(task != null){
+        if (task != null) {
             TaskList taskList = lstrep.findById(idList).orElse(null);
-            if(taskList != null){
+            if (taskList != null) {
                 task.setList(taskList);
                 tskrep.save(task);
                 return taskList;
@@ -56,6 +56,18 @@ public class TaskController {
             System.out.println("Task non esistente");
         }
         return null;
+    }
+
+    @DeleteMapping("delete")
+    public Task deleteTask(@RequestParam(value = "id", defaultValue = "") long id) {
+        Task toDelete = tskrep.findByNome(id);
+        if (toDelete != null) {
+            tskrep.delete(toDelete);
+            return toDelete;
+        } else {
+            return null;
+        }
+
     }
 
 
