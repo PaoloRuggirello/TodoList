@@ -49,7 +49,7 @@ public class TaskList {
     public List<String> getTasks() {
         List<String> result = new ArrayList<>();
         for(Task t : tasks)
-            result.add(t.toString());
+            result.add(t.getNome());
         return result;
     }
 

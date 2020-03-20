@@ -96,6 +96,7 @@ public class Task implements Serializable {
                 .append("descrizione", descrizione)
                 .append("data", data)
                 .append("done", done)
+                .append("list", list.getNome())
                 .toString();
     }
 }
