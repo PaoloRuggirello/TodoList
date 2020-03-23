@@ -42,6 +42,14 @@ public class TodolistApplicationTests {
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     }
 
+    @Test
+    public void getTask() {
+        Response response = RestAssured.given()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .get(API_ROOT + "task/getAll");
+        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+    }
+
     private Task createRandomTask() {
         Task task = new Task();
         task.setNome(randomAlphabetic(10));
