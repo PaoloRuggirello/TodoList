@@ -2,8 +2,8 @@ package com.example.todolist;
 
 import com.example.todolist.model.Task;
 import com.example.todolist.model.TaskList;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import com.jayway.restassured.RestAssured;
+import com.jayway.restassured.response.Response;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
@@ -24,14 +24,21 @@ public class TodolistApplicationTests {
 
 
     @Test
-    public void insertByPost() {
+    public void createTaskList() {
+        Response response = RestAssured.given()
+            .contentType(MediaType.APPLICATION_JSON_VALUE)
+            .post(API_ROOT + "list/create?nome="+randomTaskList.getNome());
+
+    assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+}
+    @Test
+    public void createTask() {
         Task task = createRandomTask();
         Response response = RestAssured.given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .body(task)
-                .post(API_ROOT + "task/create");
+                .post(API_ROOT + "task/create?nome="+task.getNome()+"&idList="+randomTaskList.getId());
 
-        assertEquals(HttpStatus.CREATED.value(), response.getStatusCode());
+        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     }
 
     private Task createRandomTask() {
