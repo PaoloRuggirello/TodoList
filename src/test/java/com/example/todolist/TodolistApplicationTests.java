@@ -26,17 +26,18 @@ public class TodolistApplicationTests {
     @Test
     public void createTaskList() {
         Response response = RestAssured.given()
-            .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .post(API_ROOT + "list/create?nome="+randomTaskList.getNome());
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .post(API_ROOT + "list/create?nome=" + randomTaskList.getNome());
 
-    assertEquals(HttpStatus.OK.value(), response.getStatusCode());
-}
+        assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+    }
+
     @Test
     public void createTask() {
         Task task = createRandomTask();
         Response response = RestAssured.given()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .post(API_ROOT + "task/create?nome="+task.getNome()+"&idList="+randomTaskList.getId());
+                .post(API_ROOT + "task/create?nome=" + task.getNome() + "&idList=" + randomTaskList.getId());
 
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     }

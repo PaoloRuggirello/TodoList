@@ -25,7 +25,7 @@ public class TaskList {
         tasks = new ArrayList<>();
     }
 
-    public TaskList(String nome){
+    public TaskList(String nome) {
         this();
         this.nome = nome;
     }
@@ -48,7 +48,7 @@ public class TaskList {
 
     public List<String> getTasks() {
         List<String> result = new ArrayList<>();
-        for(Task t : tasks)
+        for (Task t : tasks)
             result.add(t.getNome());
         return result;
     }
@@ -57,9 +57,10 @@ public class TaskList {
         this.tasks = tasks;
     }
 
-    public boolean addTask(Task task){
+    public boolean addTask(Task task) {
         return this.tasks.add(task);
     }
+
 
     @Override
     public String toString() {
