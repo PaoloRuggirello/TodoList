@@ -39,6 +39,7 @@ public class Task implements Serializable {
     }
 
 
+
     public long getId() {
         return id;
     }
@@ -83,9 +84,8 @@ public class Task implements Serializable {
         return list.toString();
     }
 
-    public long getListId() {
-
-        return this.list.getId();
+    public long getListId(){
+        return list.getId();
     }
 
     public void setList(TaskList list) {
